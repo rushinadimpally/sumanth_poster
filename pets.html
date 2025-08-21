@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Paws, Healthy Lives Poster</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light background for the page */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .poster-container {
+            background-color: #FFFFFF; /* White background for the poster */
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 768px; /* Max width for tablet/desktop view */
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding-bottom: 30px;
+        }
+        .header-section {
+            /* Updated background gradient for a more attractive look */
+            background: linear-gradient(135deg, #6a82fb, #fc5c7d); /* Vibrant blue to pink */
+            padding: 40px 20px;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            /* Removed flex properties for the logo */
+        }
+        .header-section h1 {
+            font-size: 2.7rem; /* Slightly increased font size */
+            font-weight: 800; /* Made font bolder for more impact */
+            margin-bottom: 10px;
+            line-height: 1.1;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle text shadow */
+            color: #ffffff; /* Ensure text color is white */
+        }
+        .header-section h2 {
+            font-size: 1.6rem; /* Slightly increased font size */
+            font-weight: 600;
+            opacity: 0.9;
+            color: #ffffff; /* Ensure text color is white */
+            margin-top: 0; /* Revert margin top */
+        }
+        /* Removed .header-section .logo-image styling */
+
+        .image-placeholder {
+            background-color: #e0f2f7; /* Light blue placeholder for image */
+            min-height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            color: #4a90e2; /* Blue text for placeholder */
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            padding: 10px; /* Add some padding around the image */
+        }
+        .image-placeholder img {
+            max-width: 100%; /* Ensure image fits container */
+            height: auto;
+            border-radius: 10px; /* Slightly rounded corners for the image */
+            display: block; /* Remove extra space below image */
+        }
+        .image-placeholder span { /* Style for fallback text */
+            position: absolute;
+            text-align: center;
+            padding: 20px;
+        }
+        .pharmacy-cross {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: #ffffff;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            opacity: 0.8;
+        }
+        .content-section {
+            padding: 30px 25px;
+            text-align: left;
+            color: #333;
+        }
+        .content-section p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 1.05rem;
+            color: #4a4a4a;
+        }
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+        .content-section ul li {
+            background-color: #f7fcfd; /* Very light blue for list items */
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 1rem;
+            color: #333;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid #87c7e0; /* Blue accent */
+            text-align: left; /* Reverted to default left alignment */
+            justify-content: flex-start; /* Reverted to default flex alignment */
+        }
+        .content-section ul li::before {
+            content: '✓';
+            color: #4CAF50; /* Green checkmark */
+            font-weight: bold;
+            margin-right: 10px; /* Reverted margin for left alignment */
+            margin-left: 0; /* Ensure no left margin */
+            order: 0; /* Ensure checkmark is on the left */
+            flex-shrink: 0; /* Prevent checkmark from shrinking */
+            font-size: 1.2em;
+            line-height: 1;
+        }
+        /* Removed .content-section ul li .benefit-text-wrapper styling */
+        .content-section ul li strong { /* Ensure strong text also aligns left within its block */
+            text-align: left;
+            display: inline; /* Reverted to inline to allow text to flow */
+            width: auto; /* Reverted width */
+        }
+        /* Removed .content-section ul li .description-text styling */
+
+        .call-to-action-section {
+            background-color: #fef3e3; /* Warm yellow background */
+            padding: 30px 25px;
+            border-radius: 10px;
+            margin: 0 25px 25px;
+        }
+        .call-to-action-section strong {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #d97706; /* Darker orange for emphasis */
+            margin-bottom: 15px;
+        }
+        .call-to-action-section a {
+            display: inline-block;
+            background-color: #4a90e2; /* Blue button */
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        .call-to-action-section a:hover {
+            background-color: #357ABD;
+            transform: translateY(-2px);
+        }
+        .small-print-section {
+            padding: 0 25px 20px;
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+            text-align: center;
+        }
+        .small-print-section strong {
+            font-weight: 600;
+            color: #555;
+        }
+        /* Removed .social-icons and related styles */
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .poster-container {
+                border-radius: 10px;
+                padding-bottom: 20px;
+            }
+            .header-section {
+                padding: 30px 15px;
+            }
+            .header-section h1 {
+                font-size: 2rem;
+            }
+            .header-section h2 {
+                font-size: 1.2rem;
+            }
+            .image-placeholder {
+                min-height: 200px;
+            }
+            .image-placeholder::before {
+                font-size: 3rem;
+            }
+            .pharmacy-cross {
+                font-size: 2.5rem;
+                top: 15px;
+                right: 15px;
+            }
+            .content-section {
+                padding: 25px 20px;
+            }
+            .content-section p {
+                font-size: 1rem;
+            }
+            .content-section ul li {
+                padding: 10px 12px;
+                font-size: 0.95rem;
+            }
+            .call-to-action-section {
+                padding: 25px 20px;
+                margin: 0 20px 20px;
+            }
+            .call-to-action-section strong {
+                font-size: 1.2rem;
+            }
+            .call-to-action-section a {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            .small-print-section {
+                padding: 0 20px 15px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster-container">
+        <!-- Header Section -->
+        <div class="header-section">
+            <div class="pharmacy-cross">+</div>
+            <h1>Happy Paws, Healthy Lives!</h1>
+            <h2>Your Pharmacy for Pet Meds.</h2>
+            <!-- Removed the logo image -->
+        </div>
+
+        <!-- Image/Visual Concept Section -->
+        <div class="image-placeholder">
+            <img src="http://googleusercontent.com/file_content/1"
+                 alt="A dog and cat cuddling"
+                 onerror="this.onerror=null; this.src=''; this.alt='[Could not load image. Pet & Owner Photo Goes Here]'; this.style.display='none'; this.nextElementSibling.style.display='block';"
+                 class="w-full h-full object-cover">
+            <span style="display: none;">[Pet & Owner Photo Goes Here]</span> <!-- Fallback text -->
+        </div>
+
+        <!-- Body Copy Section -->
+        <div class="content-section">
+            <p>Taking care of your pet's health just got easier. Our pharmacy is now your trusted local source for a wide range of prescription and over-the-counter pet medications, right in your neighborhood. Skip the extra trip to the vet for refills and enjoy reliable, affordable access to the treatments your beloved companion needs.</p>
+            <ul>
+                <li><strong>Veterinarian-Approved Prescriptions:</strong> We work directly with your vet to ensure accurate and safe dispensing.</li>
+                <li><strong>Wide Selection:</strong> From common antibiotics to specialized treatments, we've got your pet covered.</li>
+                <li><strong>Convenient Pick-Up:</strong> Get your pet's meds where you pick up your own – simple and time-saving!</li>
+                <li><strong>Expert Advice:</strong> Our pharmacists are here to answer your questions about dosage, side effects, and administration.</li>
+                <li><strong>Significant Savings:</strong> Our prices are often **much cheaper than filling prescriptions at your veterinarian!**</li>
+                <li><strong>Plus, discover our selection of non-prescription pet food and treats!</strong> Because good health starts from the inside out.</li>
+            </ul>
+        </div>
+
+        <!-- Call to Action Section -->
+        <div class="call-to-action-section">
+            <strong>Ask Your Veterinarian to Send Prescriptions Our Way!</strong>
+            <p class="text-gray-700 text-sm mb-4">OR</p>
+            <a href="https://www.google.com/search?q=https://www.YourPharmacyName.com/petmeds" target="_blank" rel="noopener noreferrer">
+                Visit Our Pharmacy!
+            </a>
+            <p class="mt-4 font-semibold text-gray-800">Call Us: 905-521-6170</p>
+        </div>
+
+        <!-- Small Print/Details Section -->
+        <div class="small-print-section">
+            <p><strong>St. Joseph's Outpatient Pharmacy</strong></p>
+            <p>50 Charlton Ave E Hamilton ON L8N 4A6</p>
+            <p><strong>Ph:</strong> 905-521-6170 | <strong>Fax:</strong> 905-521-6172</p>
+            <p class="mt-3">
+                <strong class="block mb-2">Hours of Operation:</strong> Mon-Fri: 9 AM - 5 PM, Tue: 9 AM - 7 PM
+            </p>
+            <p class="mt-5"><strong>Scripts Pharmacy - St. Joseph's Healthcare Hamilton King Campus</strong></p>
+            <p>2757 King St E Hamilton ON L8G 5E4</p>
+            <p><strong>Ph:</strong> 905-573-4850 | <strong>Fax:</strong> 905-573-4851</p>
+            <p class="mt-3">
+                <strong class="block mb-2">Hours of Operation:</strong> Mon-Fri: 9 AM - 5 PM
+            </p>
+        </div>
+    </div>
+</body>
+</html>
